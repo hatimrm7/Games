@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" >
+    <title>Document</title>
+    <script>
+        function declarete(){
+            msg = document.getElementById('msg')
+            excutefriend = false
+            excutebot = false
+        }
+    function playfr(){
+            remo()
+            excutefriend = true
+            msg.innerHTML = "<center>Player X <br> turn</center>"
+            msg.classList = "msg1"
+    }
+    function playbot(){
+            remo()
+            excutebot = true
+            msg.innerHTML = "<center>Player X <br> turn</center>"
+            msg.classList = "msg1"
+    }
+    function add(id){
+        if(excutefriend){
+            idx = po.indexOf(id)
+            if(idx != -1){
+            po.splice(idx,1)
+            if(role%2 != 0){
+                document.getElementById(id).innerHTML = '<p>X</p><i class="x fa-solid fa-xmark">'
+                msg.innerHTML = "<center>Player O <br> turn</center>"
+                msg.classList = "msg2"
+            }
+            else{
+                document.getElementById(id).innerHTML = '<p>O</p><i class="o fa-solid fa-o">'
+                    msg.innerHTML = "<center>Player X <br> turn</center>"
+                    msg.classList = "msg1"
+            }
+            role++
+            }
+            check()
+            }
+        else if(excutebot){
+            idx = po.indexOf(id)
+            if(idx != -1){
+                po.splice(idx,1)
+                document.getElementById(id).innerHTML = '<p>X</p><i class="x fa-solid fa-xmark">'
+                msg.innerHTML = "<center>Player O <br> turn</center>"
+                msg.classList = "msg2"
+                role++
+                check()
+                if(excutebot){
+                    if(role%2 == 0){
+                        u = setInterval("bot()",1000)
+                        role++
+                    }
+                }
+            }
+            }
+    }
+        function bot(){
+            bo = Math.floor(Math.random()*po.length)
+            document.getElementById(po[bo]).innerHTML = '<p>O</p><i class="o fa-solid fa-o">'
+            msg.innerHTML = "<center>Player X <br> turn</center>"
+            msg.classList = "msg1"
+            po.splice(bo,1)
+            check()
+            clearInterval(u)
+        }
+        function check(){
+            if(p1.textContent == p2.textContent && p2.textContent == p3.textContent){
+                msg.innerHTML = `<center>Player ${p1.textContent}<br> Won 🥳<br><center><input type="button" value="vs Friend" onclick="playfr()"><input type="button" value="vs Bot" onclick="playbot()"></center>`
+                document.querySelector(".line").style = "display:inline-block;"
+                if(p1.textContent == "X"){
+                    msg.classList = "msg1"
+                }
+                else{
+                    msg.classList = "msg2"
+                }
+                excutefriend = false
+                excutebot = false
+            }
+            else if(p1.textContent == p4.textContent && p4.textContent == p7.textContent){
+                msg.innerHTML = `<center>Player ${p1.textContent}<br> Won 🥳<br><center><input type="button" value="vs Friend" onclick="playfr()"><input type="button" value="vs Bot" onclick="playbot()"></center>`
+                document.querySelector(".line").style = "display:inline-block;left:-30px;top:260px;transform: rotate(90deg);"
+                if(p1.textContent == "X"){
+                    msg.classList = "msg1"
+                }
+                else{
+                    msg.classList = "msg2"
+                }
+                excutefriend = false
+                excutebot = false
+            }
+            else if(p3.textContent == p6.textContent && p6.textContent == p9.textContent){
+                msg.innerHTML = `<center>Player ${p3.textContent}<br> Won 🥳<br><center><input type="button" value="vs Friend" onclick="playfr()"><input type="button" value="vs Bot" onclick="playbot()"></center>`
+                document.querySelector(".line").style = "display:inline-block;left:250px;top:260px;transform: rotate(90deg);"
+                if(p3.textContent == "X"){
+                    msg.classList = "msg1"
+                }
+                else{
+                    msg.classList = "msg2"
+                }
+                excutefriend = false
+                excutebot = false
+            }
+            else if(p7.textContent == p8.textContent && p8.textContent == p9.textContent){
+                msg.innerHTML = `<center>Player ${p7.textContent}<br> Won 🥳<br><center><input type="button" value="vs Friend" onclick="playfr()"><input type="button" value="vs Bot" onclick="playbot()"></center>`
+                document.querySelector(".line").style = "display:inline-block;left:100px;top:390px;"
+                if(p7.textContent == "X"){
+                    msg.classList = "msg1"
+                }
+                else{
+                    msg.classList = "msg2"
+                }
+                excutefriend = false
+                excutebot = false
+            }
+            else if(p4.textContent == p5.textContent && p5.textContent == p6.textContent){
+                msg.innerHTML = `<center>Player ${p4.textContent}<br> Won 🥳<br><center><input type="button" value="vs Friend" onclick="playfr()"><input type="button" value="vs Bot" onclick="playbot()"></center>`
+                document.querySelector(".line").style = "display:inline-block;left:100px;top:250px;"
+                if(p4.textContent == "X"){
+                    msg.classList = "msg1"
+                }
+                else{
+                    msg.classList = "msg2"
+                }
+                excutefriend = false
+                excutebot = false
+            }
+            else if(p2.textContent == p5.textContent && p5.textContent == p8.textContent){
+                msg.innerHTML = `<center>Player ${p2.textContent}<br> Won 🥳<br><center><input type="button" value="vs Friend" onclick="playfr()"><input type="button" value="vs Bot" onclick="playbot()"></center>`
+                document.querySelector(".line").style = "display:inline-block;left:140px;top:250px;transform: rotate(90deg);"
+                if(p2.textContent == "X"){
+                    msg.classList = "msg1"
+                }
+                else{
+                    msg.classList = "msg2"
+                }
+                excutefriend = false
+                excutebot = false
+            }
+            else if(p1.textContent == p5.textContent && p5.textContent == p9.textContent){
+                msg.innerHTML = `<center>Player ${p1.textContent}<br> Won 🥳<br><center><input type="button" value="vs Friend" onclick="playfr()"><input type="button" value="vs Bot" onclick="playbot()"></center>`
+                document.querySelector(".line").style = "display:inline-block;left:70px;top:254px; transform: rotate(45deg); width: 500px;"
+                if(p1.textContent == "X"){
+                    msg.classList = "msg1"
+                }
+                else{
+                    msg.classList = "msg2"
+                }
+                excutefriend = false
+                excutebot = false
+            }
+            else if(p3.textContent == p5.textContent && p5.textContent == p7.textContent){
+                msg.innerHTML = `<center>Player ${p3.textContent}<br> Won 🥳<br><center><input type="button" value="vs Friend" onclick="playfr()"><input type="button" value="vs Bot" onclick="playbot()"></center>`
+                document.querySelector(".line").style = "display:inline-block;left:70px;top:257px; transform: rotate(-45deg); width: 500px;"
+                if(p3.textContent == "X"){
+                    msg.classList = "msg1"
+                }
+                else{
+                    msg.classList = "msg2"
+                }
+                excutefriend = false
+                excutebot = false
+            }
+            else if(po.length == 0){
+                msg.innerHTML = `<center>There is a<br>Draw 😐<br><center><input type="button" value="vs Friend" onclick="playfr()"><input type="button" value="vs Bot" onclick="playbot()"></center>`
+                msg.classList = "msgdr"
+                excutefriend = false
+                excutebot = false
+            }
+        }
+        function remo(){
+            p1.innerHTML = "<p>a</p>"
+            p2.innerHTML = "<p>b</p>"
+            p3.innerHTML = "<p>c</p>"
+            p4.innerHTML = "<p>d</p>"
+            p5.innerHTML = "<p>e</p>"
+            p6.innerHTML = "<p>f</p>"
+            p7.innerHTML = "<p>g</p>"
+            p8.innerHTML = "<p>h</p>"
+            p9.innerHTML = "<p>i</p>"
+            po = ["p1","p2","p3","p4","p5","p6","p7","p8","p9"]
+            role = 1
+            document.querySelector(".line").style = "display:none;" 
+        }
+    </script>
+    <style>
+        .all{
+            display: flex;
+        }
+        .area{
+            margin-top:40px;
+            margin-left:100px;
+            display: flex;
+            flex-wrap: wrap;
+            width:500px;
+        }
+        #p1,#p2,#p3,#p4,#p5,#p6,#p7,#p8,#p9{
+            width:140px;
+            height: 140px;
+            position: relative;
+        }
+        #p2{
+            border-left: 3px solid black;
+            border-right: 3px solid black;
+        }
+        #p4{
+            border-top: 3px solid black;
+            border-bottom: 3px solid black;
+        }
+        #p5{
+            border:3px solid black;
+        }
+        #p6{
+            border-top: 3px solid black;
+            border-bottom: 3px solid black;
+        }
+        #p8{
+            border-left: 3px solid black;
+            border-right: 3px solid black;
+        }
+        .pl{
+            width:500px;
+            height: 100px;
+            padding-top: 270px;
+        }
+        .msg1{
+            width:500px;
+            height: 280px;
+            font-size: 70px;
+            padding-top: 170px;
+            color: red;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .msg2{
+            width:500px;
+            height: 280px;
+            font-size: 70px;
+            padding-top: 170px;
+            color: blue;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .msgdr{
+            width:500px;
+            height: 280px;
+            font-size: 70px;
+            padding-top: 170px;
+            color: silver;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .x{
+            color: red;
+            position: absolute;
+            left:30px;
+            top:25px;
+            font-size: 90px;
+        }
+        .o{
+            color:blue;
+            position: absolute;
+            left:30px;
+            top:25px;
+            font-size: 80px;
+        }
+        p{
+            visibility: hidden;
+        }
+        input{
+            width:120px;
+            height: 50px;
+            background-color: yellow;
+            font-size: 25px;
+            border: 2px solid black;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+        @media (max-width:700px){
+            .all{
+                display: block;
+            }
+        }
+        .line{
+            position: absolute;
+            left:100px;
+            top:110px;
+            width: 420px;
+            height:5px;
+            z-index: 1;
+            border: 1px;
+            border-radius: 5px;
+            display: none;
+            background-color: black;
+        }
+    </style>
+</head>
+<body onload="declarete()">
+
+<div class="all">
+    <div class="area">
+        <div id="p1" onclick="add(this.id)"></div>
+        <div id="p2" onclick="add(this.id)"></div>
+        <div id="p3" onclick="add(this.id)"></div>
+        <div id="p4" onclick="add(this.id)"></div>
+        <div id="p5" onclick="add(this.id)"></div>
+        <div id="p6" onclick="add(this.id)"></div>
+        <div id="p7" onclick="add(this.id)"></div>
+        <div id="p8" onclick="add(this.id)"></div>
+        <div id="p9" onclick="add(this.id)"></div>
+    </div>
+    <div id="msg" class="pl"><center><input type="button" value="vs Friend" onclick="playfr()"><input type="button" value="vs Bot" onclick="playbot()"></center></div>
+</div>
+<div class="line"></div>
+</body>
+</html>
