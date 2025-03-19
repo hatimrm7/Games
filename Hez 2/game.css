@@ -1,0 +1,101 @@
+body{
+    background-image: url(Moroccan\ card/zrbia.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.bot,.mine{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+    height:120px;
+}
+.mine{
+    margin-top:100px;
+}
+.lwst{
+    display: flex;
+    justify-content: center;
+    margin-top:70px;
+    margin-left:470px;
+}
+.kolchi{
+    margin-left: 500px;
+}
+input{
+    width:150px;
+    height:50px;
+    background-color: green;
+    border: 2px solid black;
+    border-radius: 7px;
+    margin-top:20px;
+    font-size: 20px;
+    color: white;
+}
+.chhal{
+    width:30px;
+    height: 25px;
+    background-color: red;
+    border: 2px solid black;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-top: 5px;
+    position: relative;
+    left:480px;
+    top:45px;
+    display: none;
+}
+.now3{
+    width:25px;
+    height:40px;
+    padding:7px 7px 5px 8px;
+    border: 2px solid black;
+    outline: 3px solid white;
+    background-color: white;
+    margin-right:40px;
+    margin-top:30px;
+    display: none;
+}
+.msg{
+    width:300px;
+    height: 165px;
+    border:3px solid black;
+    border-radius:10px ;
+    z-index: 2;
+    position: absolute;
+    left:480px;
+    top:180px;
+    display: none;
+    text-align: center;
+    padding-top: 35px;
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-image: linear-gradient(to right,red,blue);
+    color: aliceblue;
+}
+.choose{
+    width:200px;
+    height: 150px;
+    border:3px solid black;
+    border-radius:10px ;
+    z-index: 1;
+    position: absolute;
+    left:480px;
+    top:180px;
+    display: none;
+    padding: 20px;
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-image: linear-gradient(to right,red,blue);
+    color: aliceblue;
+}
+.choose img{
+    background-color: white;
+    border: 2px solid black;
+    border-radius:5px;
+    width:50px;
+    height:60px;
+    padding: 4px;
+}
